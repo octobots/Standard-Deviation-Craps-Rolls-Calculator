@@ -8,17 +8,13 @@ using namespace std;
 
 int main()
 {
-    float sum = 0;
-    float mean1 = 0;
-    float deviation = 0;
-    float number_read;
-    float sum2 = 0;
-    int dice1 = 0;
-    int dice2 = 0;
-    double dont_pass = 0;
-    double pass = 0;
-    double point = 0;
     int i = 0;
+    double sum = 0;
+    double mean1 = 0;
+    double number_read = 0;
+    double sum2 = 0;
+    
+    cout << "" << endl;
     
     ifstream infile("data");
     if(infile.is_open())
@@ -42,6 +38,7 @@ int main()
             sum2 = sum2 + pow((number_read - mean1), 2);
         }
         
+        double deviation = 0;
         deviation = sqrt(sum2/(i - 1));
         cout << "Sample standard deviation: " << deviation << endl; // prints standard deviation
         
@@ -49,6 +46,14 @@ int main()
          This part of the program finds the odds of pass, don't pass, and point rolls in craps
          and prints them to the terminal as odds out of 1000000 trials, along with percentages of each roll.
          */
+        
+        cout << "" << endl;
+        
+        int dice1 = 0;
+        int dice2 = 0;
+        double pass = 0;
+        double point = 0;
+        double dont_pass = 0;
         
         const int TRIAL = 1000000;
         srand(time(NULL));
@@ -97,6 +102,8 @@ int main()
         point / 10000 << "%" << endl;
     }
     infile.close();
+    
+    cout << "" << endl;
     
     return 0;
 }
